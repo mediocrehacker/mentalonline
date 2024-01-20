@@ -31,3 +31,6 @@
 /config/master.key
 
 .direnv/*
+
+# Ignore auto-generated Spina Tailwind CSS configuration
+/app/assets/config/spina/tailwind.config.js
