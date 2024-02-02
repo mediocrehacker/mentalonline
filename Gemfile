@@ -6,9 +6,6 @@ ruby "3.2.3"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4", ">= 7.0.4.3"
 
-# The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem "sprockets-rails"
-
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 
@@ -75,3 +72,5 @@ end
 
 gem "spina", "~> 2.18"
 gem 'rails-i18n'
+
+gem "cssbundling-rails", "~> 1.4"

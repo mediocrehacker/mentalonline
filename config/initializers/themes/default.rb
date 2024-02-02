@@ -22,20 +22,56 @@ Spina::Theme.register do |theme|
   # - Repeater
   theme.parts = [{
     name: 'content',
-    title: 'Content',
+    title: 'Контент',
     part_type: 'Spina::Parts::Text'
   }, {
-    name: 'portfolio', # added this part
-    title: 'Portfolio',
+    name: 'hero', # added this part
+    title: 'Hero Header',
     part_type: 'Spina::Parts::Text'
   }, {
     name: 'header_image',
     title: 'Header image',
     part_type: 'Spina::Parts::Image'
   }, {
-    name: 'header',
-    title: 'header',
-    part_type: 'Spina::Parts::Text'
+    name: 'image',
+    title: 'Изображение',
+    part_type: 'Spina::Parts::Image'
+  }, {
+    name: 'logo_image',
+    title: 'Логотип',
+    part_type: 'Spina::Parts::Image'
+  }, {
+    name: 'logo_text',
+    title: 'Логотип текст',
+    part_type: 'Spina::Parts::Line'
+  }, {
+    name: 'social_telegram',
+    title: 'Telegram',
+    part_type: 'Spina::Parts::Line'
+  }, {
+    name: 'social_vk',
+    title: 'VK',
+    part_type: 'Spina::Parts::Line'
+  }, {
+    name: 'social_youtube',
+    title: 'Youtube',
+    part_type: 'Spina::Parts::Line'
+  }, {
+    name: 'address',
+    title: 'Адрес',
+    part_type: 'Spina::Parts::Line'
+  }, {
+    name: 'tel',
+    title: 'Телефон',
+    part_type: 'Spina::Parts::Line'
+  }, {
+    name: 'map',
+    title: 'Яндекс карта ссылка',
+    part_type: 'Spina::Parts::Line'
+  }, {
+    name: 'email',
+    title: 'Email',
+    part_type: 'Spina::Parts::Line'
   }]
 
   # View templates
@@ -45,13 +81,13 @@ Spina::Theme.register do |theme|
   theme.view_templates = [{
     name: 'homepage',
     title: 'Homepage',
-    parts: %w[content header_image]
+    parts: %w[hero header_image content]
   }, {
     name: 'show',
     title: 'Default',
     description: 'A simple page',
     usage: 'Use for your content',
-    parts: %w[content portfolio] # added 'portfolio'
+    parts: %w[content] # added 'portfolio'
   }]
 
   # Custom pages
@@ -72,7 +108,7 @@ Spina::Theme.register do |theme|
   # Layout parts (optional)
   # You can create global content that doesn't belong to one specific page. We call these layout parts.
   # You only have to reference the name of the parts you want to have here.
-  theme.layout_parts = %w(header)
+  theme.layout_parts = %w(logo_image logo_text social_vk social_telegram social_youtube address tel email map)
 
   # Resources (optional)
   # Think of resources as a collection of pages. They are managed separately in Spina
