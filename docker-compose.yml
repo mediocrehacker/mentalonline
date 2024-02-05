@@ -1,0 +1,45 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: always
+    volumes:
+      - /postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: password 
+    ports:
+      - "5432:5432"
+
+  app:
+    image: mediocrehacker/terapist:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      RAILS_ENV: production
+      RAILS_LOG_TO_STDOUT: "true"
+      DB_HOST: postgres
+      DB_NAME: mentalonline_production 
+      DB_USERNAME: postgres 
+      DB_PASSWORD: password 
+    command: bash -c "bundle exec puma -C config/puma.rb"
+    volumes:
+      - .:/app
+    depends_on:
+      - postgres
+    ports:
+      - "3000:3000"
+
+  nginx:
+    image: mediocrehacker/terapist_nginx:latest
+    build:
+      context: .
+      dockerfile: ./nginx.Dockerfile
+    depends_on:
+      - app
+    ports:
+      - 80:80
+
+volumes:
+  postgres-data:

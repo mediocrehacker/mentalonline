@@ -83,6 +83,10 @@ Spina::Theme.register do |theme|
     title: 'Homepage',
     parts: %w[hero header_image content]
   }, {
+    name: 'contacts',
+    title: 'Контакты',
+    parts: %w[content] # added 'portfolio'
+  }, {
     name: 'show',
     title: 'Default',
     description: 'A simple page',
@@ -94,7 +98,8 @@ Spina::Theme.register do |theme|
   # Some pages should not be created by the user, but generated automatically.
   # By naming them you can reference them in your code.
   theme.custom_pages = [
-    { name: 'homepage', title: 'Главная', deletable: false, view_template: 'homepage' }
+    { name: 'homepage', title: 'Главная', deletable: false, view_template: 'homepage' },
+    { name: 'contacts', title: 'Контакты', view_template: 'contacts' }
   ]
 
   # Navigations (optional)
