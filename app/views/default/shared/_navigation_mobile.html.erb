@@ -1,0 +1,16 @@
+<ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+<% nav_items.roots.sorted.each do |root| %>
+  <% if root.children.any? %> 
+    <li><a><%= root.menu_title %></a></li>
+      <ul class="p-2">
+        <% root.children.sorted.each do |children| %>
+        <li><%= link_to(children.menu_title, children.materialized_path) %></li>
+        <% end %>
+      </ul>
+    </details>
+    </li>
+  <% else %> 
+    <li><%= link_to(root.menu_title, root.materialized_path) %></li>
+  <% end %>
+<% end %>
+</ul>

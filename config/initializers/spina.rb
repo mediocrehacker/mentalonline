@@ -4,7 +4,7 @@ Spina.configure do |config|
   # All locales your content should be available in.
   # Defaults to I18n.default_locale
   config.locales = [:ru]
-  
+
   # Backend title
   # ===============
   # Set <title> for the admin panel. Defaults to "Spina CMS"
