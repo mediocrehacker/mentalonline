@@ -20,6 +20,6 @@ EXPOSE 3000
 
 RUN yarn install
 RUN export RAILS_MASTER_KEY=$(cat config/master.key)
-RUN RAILS_ENV=production bundle exec rake assets:precompile
+RUN SECRET_KEY_BASE_DUMMY=1 RAILS_ENV=production bundle exec rake assets:precompile
 
 CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
